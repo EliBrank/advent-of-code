@@ -13,12 +13,20 @@ async function processLineByLine() {
 
   for await (const line of rl) {
     const bank = line.toString();
-    let max = parseInt(bank[0] + bank[1]);
-    for (let i = 0; i < bank.length - 1; i++) {
-      const current = parseInt(bank[i] + bank[i + 1]);
-
-      max = Math.max(current, max);
+    let l = 0;
+    let r = 1;
+    for (let i = 1; i < bank.length; i++) {
+      if (bank[i] > bank[r]) {
+        r = i;
+      }
+      if (bank[r] > bank[l] && i < (bank.length - 1)) {
+        l = r;
+        r++;
+        i++;
+      }
     }
+
+    const max = parseInt(bank[l] + bank[r]);
     console.log('max for this bank:', max);
 
     totalJoltage += max;
