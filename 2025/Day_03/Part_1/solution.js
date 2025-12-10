@@ -2,7 +2,7 @@ import { createReadStream } from 'fs';
 import { createInterface } from 'readline';
 
 async function processLineByLine() {
-  const fs = createReadStream('../datatest.txt');
+  const fs = createReadStream('../data.txt');
 
   const rl = createInterface({
     input: fs,
@@ -22,7 +22,6 @@ async function processLineByLine() {
       if (bank[r] > bank[l] && i < (bank.length - 1)) {
         l = r;
         r++;
-        i++;
       }
     }
 
