@@ -1,2 +1,3 @@
-let test = 'A123';
-console.log(test.slice(1,));
+const test = "123456";
+const testVal = test.slice(0,2);
+console.log(testVal);
