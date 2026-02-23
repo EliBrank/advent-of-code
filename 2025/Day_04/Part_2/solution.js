@@ -2,7 +2,7 @@ import { createReadStream } from 'fs';
 import { createInterface } from 'readline';
 
 async function processLineByLine() {
-  const fs = createReadStream('data.txt');
+  const fs = createReadStream('../datatest.txt');
 
   const rl = createInterface({
     input: fs,
